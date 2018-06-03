@@ -6,9 +6,9 @@
 }
 #box
 {
-    border: 1px solid skyblue;
+    border: 1px solid teal;
     width: 92px;
-    color:skyblue;
+    color:teal;
     display: block;
     float: left;
     height: 82px;
@@ -18,12 +18,18 @@
 }
 .day
 {
-    font-size: 15px;
+    font-size: 14px;
 }
+.day1
+{
+    font-size: 14px;
+}
+
+
  
 .highlight
 {
-    background-color:skyblue;
+    background-color:teal;
     color: white !important;
 }
 
@@ -36,4 +42,23 @@ input
 {
     width: 100%;
     text-align: center
+}
+
+._720kb-datepicker-calendar-header:nth-child(odd),._720kb-datepicker-calendar-years-pagination{
+    background-color: teal !important;
+    
+}
+
+._720kb-datepicker-calendar-years-pagination-pages
+{
+    background: teal !important;
+}
+
+._720kb-datepicker-calendar-years-pagination a, ._720kb-datepicker-calendar-month span, ._720kb-datepicker-default-button 
+{
+    color: white !important;
+}
+
+._720kb-datepicker-calendar-days-header {
+    background: mintcream !important;
 }
