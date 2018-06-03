@@ -1,0 +1,119 @@
+<html>
+    <head>
+       
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <style>
+
+                .main-div
+                {
+                    overflow-x: scroll;
+                }
+                #box
+                {
+                    border: 1px solid skyblue;
+                    width: 92px;
+                    color:skyblue;
+                    display: block;
+                    float: left;
+                    margin-left: 1px;
+                    margin-top: 20px;
+                    margin-bottom: 10px;
+                }
+                .day
+                {
+                    font-size: 15px;
+                }
+                 
+                .highlight
+                {
+                    background-color:skyblue;
+                    color: white !important;
+                }
+            </style>
+    </head>
+        
+    <script>
+        var app = angular.module('MyApp',[])
+
+        app.controller('MyCtrl',['$scope','$timeout',function($scope,$timeout)
+        {
+            $scope.names = [
+             {"month": "Jan","days": "31"},
+             {"month": "Feb","days": "28"},
+             {"month": "Mar","days": "31"},
+             {"month": "Apr","days": "30"},
+             {"month": "May","days": "31"},
+             {"month": "Jun","days": "30"},
+             {"month": "Jul","days": "31"},
+             {"month": "Aug","days": "31"},
+             {"month": "Sep","days": "30"},
+             {"month": "Oct","days": "31"},
+             {"month": "Nov","days": "30"},
+             {"month": "Dec","days": "31"}];
+
+            $scope.value=function(date)
+            {
+                $scope.selected_month_days = date.days;
+                $scope.selected_month = date.month;
+                $scope.arrayDays = [];
+
+                var Day_name = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                var date = new Date($scope.selected_month+'/'+'01/'+'/2018')
+                var d= date.getDay();
+               // var j = day;
+ 
+                for(var i=0;i<$scope.selected_month_days;i++)
+                {
+                
+                    if(d>6)
+                    {
+                        d= 0;
+                    }
+                    var obj={};
+                    obj.date =i+1;
+                    obj.active = 0;
+                    obj.day=Day_name[d]
+                    d++;
+                    $scope.arrayDays.push(obj);
+                }
+                console.log($scope.arrayDays);
+                
+            }
+
+
+            $scope.open = function(index)
+            {
+                if(typeof $scope.emptyIndex != 'undefined')
+                    $scope.arrayDays[$scope.emptyIndex].active = 0;
+                $scope.arrayDays[index].active = 1;
+                $scope.emptyIndex = index;
+            }
+       
+        }])
+
+       
+    </script>
+
+
+    <body ng-app="MyApp" ng-controller="MyCtrl">
+        <div>
+            <label for="startDate">Month :</label>
+            <select ng-model="selectedName" ng-options="x.month for x in names" ng-change="value(selectedName)">
+            </select>
+        </div>
+
+        <div ng-class="{'highlight': data.active == 1}" ng-repeat="data in arrayDays track by $index" class="text-center" id="box" ng-click=open($index)>
+            <span class="day text-center">{{data.day}}</span><br/>
+            <b class="date">{{data.date}}</b>
+        </div>
+     
+       
+            
+
+</html>
