@@ -1,0 +1,36 @@
+<html>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/node_modules/angularjs-datepicker/dist/angular-datepicker.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angularjs-datepicker/dist/angular-datepicker.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="js/dateCtrl.js"></script>
+
+
+    <body ng-app="MyApp">   
+        <div ng-controller="MyCtrl">
+            <div class="container mt-5 ">
+                <div class="row ">
+                    <datepicker class="date" date-format="MM-dd-yyyy">
+                        <input class="p-1" placeholder="Choose a Date" ng-model="date" ng-change="changeDate(date)">
+                        <span class="input-group-addon" style="cursor: pointer">
+                            <i class="fa fa-lg fa-calendar"></i>
+                        </span>
+                    </datepicker>
+                </div>    
+            </div>
+                    
+            <div class="main-div">
+                <div ng-class="{'highlight': data.active == 1}" ng-repeat="data in arrayDays track by $index" class="text-center" id="box" ng-click=open($index)>
+                    <span class="day text-center" ng-if="$index == 0">Today</span>
+                    <span class="day text-center" ng-if="$index == 1">Tommorrow</span>
+                    <span class="day text-center" ng-if="$index  != 0 && $index  != 1">{{data.month}}</span><br/>
+                    <b class="date">{{data.date}}</b><br/>
+                    <span class="day text-center">{{data.day}}</span>
+                </div>
+            </div>
+        </div> 
+    </body>
+</html>
