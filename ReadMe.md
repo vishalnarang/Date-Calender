@@ -42,5 +42,11 @@ Call the directive wherever you want in your html page
 <datepicker>
   <input ng-model="date" type="text"/>
 </datepicker>
+```
+## Screenshots
+### 
+![screenshot from 2018-06-10 12-03-49](https://user-images.githubusercontent.com/35518865/41198975-e01a85ea-6ca7-11e8-8734-7d87bca2bf87.png)
 
+### 
+![screenshot from 2018-06-10 12-06-05](https://user-images.githubusercontent.com/35518865/41198973-dfd84e6e-6ca7-11e8-9cb4-09e31d06bc44.png)
 
