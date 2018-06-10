@@ -13,11 +13,15 @@ Npm
 npm install angular
                           
 After that you need to add Datetime picker 
-Installation
+
+Installation		
+
 Bower
 $ bower install angularjs-datepicker --save
+
 Npm
 $ npm install angularjs-datepicker --save
+
 then load the js files in your html
 
 Add module dependency
