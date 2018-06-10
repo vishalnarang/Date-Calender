@@ -1,8 +1,7 @@
 # Date-Calender
 
-This ia a custom calender that will show you all the date from the date you have selected in the inbox box 
-You can also move forward as well as backward with the help of arrow button that will show when u hover any date.
-Thie custom dae picker is responsive for all screen sizes.
+This is a custom calender that will show you all the days in that month from the date you have selected in the input box You can also move forward as well as backward between the dates with the help of arrow button that will show when your hover any date.
+This custom date picker is responsive for all screen sizes.
 
 ## Getting Started
 
@@ -12,21 +11,22 @@ you need to add angular in your html using
                                   or
 Npm
 
-			npm install angular
+			$ npm install angular
 
 ### Prerequisites
 
-you need to add Datetime picker  in your project
+you need to add Date picker in your project
 
 
 ### Installing
 
-####Bower
+#### Bower
 
-$ bower install angularjs-datepicker --save
+		$ bower install angularjs-datepicker --save
 
-####Npm
-$ npm install angularjs-datepicker --save
+#### Npm
+
+		$ npm install angularjs-datepicker --save
 
 then load the js files in your html
 ```
