@@ -1,36 +1,72 @@
 <html>
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/node_modules/angularjs-datepicker/dist/angular-datepicker.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/angularjs-datepicker/dist/angular-datepicker.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/node_modules/angular/angular.min.js"></script>
-    <script src="/node_modules/angularjs-datepicker/dist/angular-datepicker.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/angular/angular.min.js"></script>
+    <script src="./node_modules/angularjs-datepicker/dist/angular-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+   
+
+   
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="js/app-ctrl.js"></script>
     <script src="js/dateCtrl.js"></script>
+    <script src="js/services.js"></script>
 
 
-    <body ng-app="MyApp">   
+    <body  ng-app="MyApp">   
         <div ng-controller="MyCtrl">
-            <div class="container mt-5 ">
-                <div class="row ">
-                    <datepicker class="date" date-format="MM-dd-yyyy">
-                        <input class="p-1" placeholder="Choose a Date" ng-model="date" ng-change="changeDate(date)">
-                        <span class="input-group-addon" style="cursor: pointer">
-                            <i class="fa fa-lg fa-calendar"></i>
-                        </span>
-                    </datepicker>
+            <div id="exportthis">
+            <div class="container-fluid mt-5">
+                <div class="row justify-content-center">
+                        <datepicker class="date" date-format="MM-dd-yyyy">
+                            <input class="choose-box" placeholder="Choose a Date" ng-model="date" ng-change="changeDate(date)">
+                            <span class="input-group-addon" style="cursor: pointer">
+                            </span>
+                        </datepicker>
                 </div>    
             </div>
-                    
-            <div class="main-div">
-                <div ng-class="{'highlight': data.active == 1}" ng-repeat="data in arrayDays track by $index" class="text-center" id="box" ng-click=open($index)>
-                    <span class="day text-center" ng-if="$index == 0">Today</span>
-                    <span class="day text-center" ng-if="$index == 1">Tommorrow</span>
-                    <span class="day text-center" ng-if="$index  != 0 && $index  != 1">{{data.month}}</span><br/>
-                    <b class="date">{{data.date}}</b><br/>
-                    <span class="day text-center">{{data.day}}</span>
+              
+            <div class="container mt-5 pl-5 data-div">
+                <div class="row justify-content-center">
+                    <a ng-hide="l_index == 0" class="date-view"><i class="fa fa-arrow-circle-left icon1" ng-click="leftSelect()"></i></a>
+                    <div ng-class="{'highlight': data.active == 1}" ng-repeat="data in newArray track by $index" class="text-center" id="box" ng-click=open($index)>
+                        <p class="align-date">{{data.month}}</p>
+                        <b class="date">{{data.date}}</b><br/>
+                        <span class="day text-center">{{data.day}}</span>
+                        </div>
+                        <a ng-hide="(r_index*number)  > arrayDays.length||newArray.length == 0" class="date-view" ><i class="fa fa-arrow-circle-right icon" ng-click="rightSelect()"></i></a>
                 </div>
             </div>
+            
+
+
+            <div class="modal modal-dialog" style="position: absolute !important;max-width: 90% !important;" id="myModal">
+                <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>   
+                        </div>
+                    <div id="screenshot1" style="width: 100% !important; height: 80% !important;overflow: hidden !important;">
+
+                    </div>
+                </div>
+            </div> 
+            
+            <!-- <footer class="footer">
+                <div class="row pr-3" ng-show="showCricle == 1">   
+                    <a class="btn camera-position" id="export" ng-click="export(1)"><i class="fa fa-camera camera-icon" aria-hidden="true"></i></a>
+                </div>
+                <div ng-show="showCricle == 1">
+                    <svg height="400" width="400">
+                        <circle cx="480" cy="480" r="480" fill="teal"/>
+                    </svg> 
+                </div>
+                
+            </footer> -->
         </div> 
+    </div>        
     </body>
 </html>

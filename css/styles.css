@@ -1,13 +1,7 @@
-.main-div
-{
-    overflow-x: scroll;
-    min-width: 3000px; 
-    overflow: hidden;                   
-}
 #box
 {
     border: 1px solid teal;
-    width: 92px;
+    width: 100px !important;
     color:teal;
     display: block;
     float: left;
@@ -15,7 +9,7 @@
     margin-left: 2px;
     margin-top: 20px;
     margin-bottom: 10px;
-}
+} 
 .day
 {
     font-size: 14px;
@@ -25,8 +19,6 @@
     font-size: 14px;
 }
 
-
- 
 .highlight
 {
     background-color:teal;
@@ -38,10 +30,19 @@
     width:20% !important;
 }
 
-input
+.choose-box
 {
     width: 100%;
-    text-align: center
+    text-align: center;
+    min-width: 150px;
+}
+
+.bx-viewport 
+{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 112px !important;
 }
 
 ._720kb-datepicker-calendar-header:nth-child(odd),._720kb-datepicker-calendar-years-pagination{
@@ -61,4 +62,80 @@ input
 
 ._720kb-datepicker-calendar-days-header {
     background: mintcream !important;
+}
+
+.align-date
+{
+    font-size: 14px;
+    margin-top:5px;
+    margin-bottom: -5px !important;
+}
+
+
+.bx-prev, .bx-next
+{
+    opacity: 0;
+}
+
+.bx-wrapper:hover .bx-prev  { opacity: 1; }
+
+.bx-wrapper:hover .bx-next {
+    opacity: 1;
+}
+
+.icon
+{
+    font-size: 20px;
+    top: 50px;
+    position: relative;
+    right: 20px;
+    color: lightsalmon;
+}
+
+.icon1
+{
+    font-size: 20px;
+    position: relative;
+    top: 50px;
+    left:23px;
+    color: lightsalmon
+}
+
+.data-div .date-view 
+{
+    opacity: 0;
+}
+
+.data-div:hover  .date-view{
+    opacity: 1;
+}
+
+.circle
+{
+    width:300px;
+    height: 100px;
+    background-color: aqua;
+    border:2px solid aqua;
+    border-radius: 100px;
+}
+
+.camera-icon
+{
+    position: relative;
+    top: 380px;
+    left: 350px;
+}
+
+.footer
+{
+    float: right;
+    margin-top: 180px;
+}
+
+@media only screen and (max-width: 500px) and (min-width: 300px)  {
+    .choose-box
+    {
+        position: relative;
+        right: 17px;
+    }
 }
